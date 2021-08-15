@@ -29,10 +29,10 @@ def reply_bf(update):
     message_content = update["message"]["content"].get("text", {})
     message_text = message_content.get("text", "").lower()
     chat_id = update["message"]["chat_id"]
-    sender = update['message']['sender']['user_id']
+    # sender = update['message']['sender']['user_id']
     with open('rough/logs.txt','a+') as f:
-        f.write("[{}] {}: {}\n".format(chat_id, sender,message_text))
-    if chat_id == bf and sender == bf and message_text == "hi":
+        f.write("[{}] {}\n".format(chat_id, message_text))
+    if chat_id == bf and message_text == "hi":
         tg.send_message(
             chat_id=chat_id,
             text="~~ hi yourself, handsome!~ <3<3",
